@@ -1,0 +1,12 @@
+@media (max-width:768px) {
+    .navbar {
+        display: none;
+    }
+}
+
+.logo-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
