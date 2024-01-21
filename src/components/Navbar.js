@@ -10,10 +10,10 @@ export default function Navbar() {
       <img src="./logo.jpg" alt="Logo" className='logo-image'/>
       <span className="ml-10 text-xl">Coding</span>
     </p>
-    <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a className="mr-10 hover:text-white">Explore</a>
-      <a className="mr-10 hover:text-white">Problems</a>
-      <a className="mr-10 hover:text-white">Sign in</a>
+    <nav className="md:ml-auto flex font-thin flex-wrap items-center text-base justify-center">
+      <a className="mr-10 transition duration-300 hover:scale-110 hover:-translate-y-1 hover:font-normal">Explore</a>
+      <a className="mr-10 transition duration-300 hover:scale-110 hover:-translate-y-1 hover:font-normal">Problems</a>
+      <a className="mr-10 transition duration-300 hover:scale-110 hover:-translate-y-1 hover:font-normal">Sign in</a>
     </nav>
   </div>
 </header>
