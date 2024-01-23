@@ -11,9 +11,9 @@ export default function Navbar() {
       <span className="ml-10 text-xl">Coding</span>
     </p>
     <nav className="md:ml-auto flex font-thin flex-wrap items-center text-base justify-center">
-      <a className="mr-10 transition duration-300 hover:scale-110 hover:-translate-y-1 hover:font-normal">Explore</a>
-      <a className="mr-10 transition duration-300 hover:scale-110 hover:-translate-y-1 hover:font-normal">Problems</a>
-      <a className="mr-10 transition duration-300 hover:scale-110 hover:-translate-y-1 hover:font-normal">Sign in</a>
+      <button className="ml-4 mr-8 py-1 px-4 transition duration-500 rounded-full hover:bg-white hover:text-black">Explore</button>
+      <button className="ml-4 mr-8 py-1 px-4 transition duration-500 rounded-full hover:bg-white hover:text-black">Problems</button>
+      <button className="ml-4 mr-8 py-1 px-4 transition duration-500 rounded-full hover:bg-white hover:text-black">Sign in</button>
     </nav>
   </div>
 </header>
