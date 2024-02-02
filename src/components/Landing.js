@@ -1,9 +1,11 @@
 import React from 'react';
 import '../css/Landing.css';
+import Navbar from './Navbar'
 
 export default function Landing() {
   return (
     <div>
+      <Navbar to="/signin" btn="Sign in"/>
         <div className="diagonal-partition"></div>
         <div className="flex flex-col md:items-start">
             <div className="heading text-center">
