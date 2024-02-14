@@ -1,0 +1,104 @@
+[
+
+{
+    "id":"1",
+    "topic": "DSA",
+    "sub-topic":"Arrays",
+    "description":"An array is a data structure that contains a group of elements of the same data type and stores them together in contiguous memory locations. Computer programmers use arrays in their programs to organize sets of data in a way that can be easily sorted and searched. They are more efficient at storing data than separate variables and can help a program run faster. Arrays are a very versatile method of storing data in a program. For example, a search engine may use an array to save a list of search results. It can display one element from that array at a time, in sequence, until it reaches either a specified number of results or the final value stored in the array. Since these values are all stored in one large block of memory instead of in separate variables stored in multiple locations, the results are shown quickly and efficiently. An array containing six values and their corresponding index addresses An array containing six values and their corresponding index addresses Since an array stores its values in contiguous memory locations, the size of an array is set when created. The data type, like integer or string, is also defined at creation. A program can reference individual values in an array using the array name combined with that value's index address. In most languages, the index starts with 0 and increments from there. However, some languages start the index at 1, while others allow the programmer to choose whether an index starts with 0 or 1. Creating and Using an Array The syntax in C++ for creating an array and storing values in it looks like this: int characterStats[6] = {15, 14, 13, 12, 10, 8}; The int statement sets the data type as integer, and characterStats gives the array a name. The square brackets [] specify that it is an array, while the number inside the brackets determines its length. The values in the curly brackets {}, separated by commas, are the values contained in the array. The syntax for displaying a specific value in an array may look like this: print(characterStats[2]); Since this array's index starts with 0, this statement would output the number 13, the array's third value. Programmers may also use while and for loops with arrays to output multiple values from an array in sequence with a single command.",
+
+    "example":"Let's suppose a class consists of ten students, and the class has to publish their results. If you had declared all ten variables individually, it would be challenging to manipulate and maintain the data. If more students were to join, it would become more difficult to declare all the variables and keep track of it. To overcome this problem, arrays came into the picture.",
+
+    "image":["./images/Array1.png", "./images/Array2.png"]
+},
+
+{
+    "id":"2",
+    "topic": "DSA",
+    "sub-topic":"LinkedList",
+    "description":"Linked list is a linear data structure that includes a series of connected nodes. Linked list can be defined as the nodes that are randomly stored in the memory. A node in the linked list contains two parts, i.e., first is the data part and second is the address part. The last node of the list contains a pointer to the null. After array, linked list is the second most used data structure. In a linked list, every link contains a connection to another link. Representation of a Linked list Linked list can be represented as the connection of nodes in which each node points to the next node of the list. Linked list Till now, we have been using array data structure to organize the group of elements that are to be stored individually in the memory. However, Array has several advantages and disadvantages that must be known to decide the data structure that will be used throughout the program. Now, the question arises why we should use linked list over array? Why use linked list over array? Linked list is a data structure that overcomes the limitations of arrays. Let's first see some of the limitations of arrays - The size of the array must be known in advance before using it in the program. Increasing the size of the array is a time taking process. It is almost impossible to expand the size of the array at run time. All the elements in the array need to be contiguously stored in the memory. Inserting an element in the array needs shifting of all its predecessors. Linked list is useful because - It allocates the memory dynamically. All the nodes of the linked list are non-contiguously stored in the memory and linked together with the help of pointers. In linked list, size is no longer a problem since we do not need to define its size at the time of declaration. List grows as per the program's demand and limited to the available memory space.",
+
+    "example":"Each node holds a single value and a reference to the next node in the list. The list has a head, which is a reference to the first node in the list, and a tail, which is a reference to the last node in the list. The nodes are not stored in a contiguous block of memory, but instead, each node holds the address of the next node in the list. Accessing elements in a singly linked list requires traversing the list from the head to the desired node, as there is no direct access to a specific node in memory.",
+
+    "image":["./images/Linkedlist1.png", "./images/Linkedlist2.png"]
+},
+
+{
+    "id":"3",
+    "topic": "DSA",
+    "sub-topic":"Stack",
+    "description":"A stack is a linear data structure where elements are stored in the LIFO (Last In First Out) principle where the last element inserted would be the first element to be deleted. A stack is an Abstract Data Type (ADT), that is popularly used in most programming languages. It is named stack because it has the similar operations as the real-world stacks, for example − a pack of cards or a pile of plates, etc. stack example Stack is considered a complex data structure because it uses other data structures for implementation, such as Arrays, Linked lists, etc. Stack Representation A stack allows all data operations at one end only. At any given time, we can only access the top element of a stack.  Stack Representation A stack can be implemented by means of Array, Structure, Pointer, and Linked List. Stack can either be a fixed size one or it may have a sense of dynamic resizing. Here, we are going to implement stack using arrays, which makes it a fixed size stack implementation. Basic Operations on Stacks Stack operations are usually performed for initialization, usage and, de-initialization of the stack ADT. The most fundamental operations in the stack ADT include: push(), pop(), peek(), isFull(), isEmpty(). These are all built-in operations to carry out data manipulation and to check the status of the stack. Stack uses pointers that always point to the topmost element within the stack, hence called as the top pointer.",
+
+    "example":"Now, assume that you have a stack of books. You can only see the top, i.e., the top-most book, namely 40, which is kept top of the stack. If you want to insert a new book first, namely 50, you must update the top and then insert a new text. And if you want to access any other book other than the topmost book that is 40, you first remove the topmost book from the stack, and then the top will point to the next topmost book. working-of-stack. After working on the representation of stacks in data structures, you will see some basic operations performed on the stacks in data structures.",
+
+    "image":["./images/Stack1.png", "./images/Stack2.png"]
+},
+
+{
+    "id":"4",
+    "topic": "DSA",
+    "sub-topic":"Queue",
+    "description":"A queue is a linear data structure where elements are stored in the FIFO (First In First Out) principle where the first element inserted would be the first element to be accessed. A queue is an Abstract Data Type (ADT) similar to stack, the thing that makes queue different from stack is that a queue is open at both its ends. The data is inserted into the queue through one end and deleted from it using the other end. Queue is very frequently used in most programming languages. car A real-world example of queue can be a single-lane one-way road, where the vehicle enters first, exits first. More real-world examples can be seen as queues at the ticket windows and bus-stops. Representation of Queues Similar to the stack ADT, a queue ADT can also be implemented using arrays, linked lists, or pointers. As a small example in this tutorial, we implement queues using a one-dimensional array. Representation of queues Basic Operations in Queue Queue operations also include initialization of a queue, usage and permanently deleting the data from the memory. The most fundamental operations in the queue ADT include: enqueue(), dequeue(), peek(), isFull(), isEmpty(). These are all built-in operations to carry out data manipulation and to check the status of the queue. Queue uses two pointers − front and rear. The front pointer accesses the data from the front end (helping in enqueueing) while the rear pointer accesses data from the rear end (helping in dequeuing).",
+
+    "example":"Two pointers are there denoting two ends, FRONT and REAR. FRONT tracks the first element of the queue. REAR tracks the last element of the queue. Initially, set the value of FRONT and REAR to -1. Afterward, follow the above-given algorithms for the basic operations.",
+
+    "image":["./images/Queue1.png","./images/Queue2.png"]
+},
+
+{
+    "id":"5",
+    "topic": "DSA",
+    "sub-topic":"trees"
+},
+
+{
+    "id":"6",
+    "topic": "OOP",
+    "sub-topic":"Arrays",
+    "description":"An array is a data structure that contains a group of elements of the same data type and stores them together in contiguous memory locations. Computer programmers use arrays in their programs to organize sets of data in a way that can be easily sorted and searched. They are more efficient at storing data than separate variables and can help a program run faster. Arrays are a very versatile method of storing data in a program. For example, a search engine may use an array to save a list of search results. It can display one element from that array at a time, in sequence, until it reaches either a specified number of results or the final value stored in the array. Since these values are all stored in one large block of memory instead of in separate variables stored in multiple locations, the results are shown quickly and efficiently. An array containing six values and their corresponding index addresses An array containing six values and their corresponding index addresses Since an array stores its values in contiguous memory locations, the size of an array is set when created. The data type, like integer or string, is also defined at creation. A program can reference individual values in an array using the array name combined with that value's index address. In most languages, the index starts with 0 and increments from there. However, some languages start the index at 1, while others allow the programmer to choose whether an index starts with 0 or 1. Creating and Using an Array The syntax in C++ for creating an array and storing values in it looks like this: int characterStats[6] = {15, 14, 13, 12, 10, 8}; The int statement sets the data type as integer, and characterStats gives the array a name. The square brackets [] specify that it is an array, while the number inside the brackets determines its length. The values in the curly brackets {}, separated by commas, are the values contained in the array. The syntax for displaying a specific value in an array may look like this: print(characterStats[2]); Since this array's index starts with 0, this statement would output the number 13, the array's third value. Programmers may also use while and for loops with arrays to output multiple values from an array in sequence with a single command.",
+
+    "example":"Let's suppose a class consists of ten students, and the class has to publish their results. If you had declared all ten variables individually, it would be challenging to manipulate and maintain the data. If more students were to join, it would become more difficult to declare all the variables and keep track of it. To overcome this problem, arrays came into the picture.",
+
+    "image":["./images/Array1.png", "./images/Array2.png"]
+},
+
+{
+    "id":"7",
+    "topic": "OOP",
+    "sub-topic":"LinkedList",
+    "description":"Linked list is a linear data structure that includes a series of connected nodes. Linked list can be defined as the nodes that are randomly stored in the memory. A node in the linked list contains two parts, i.e., first is the data part and second is the address part. The last node of the list contains a pointer to the null. After array, linked list is the second most used data structure. In a linked list, every link contains a connection to another link. Representation of a Linked list Linked list can be represented as the connection of nodes in which each node points to the next node of the list. Linked list Till now, we have been using array data structure to organize the group of elements that are to be stored individually in the memory. However, Array has several advantages and disadvantages that must be known to decide the data structure that will be used throughout the program. Now, the question arises why we should use linked list over array? Why use linked list over array? Linked list is a data structure that overcomes the limitations of arrays. Let's first see some of the limitations of arrays - The size of the array must be known in advance before using it in the program. Increasing the size of the array is a time taking process. It is almost impossible to expand the size of the array at run time. All the elements in the array need to be contiguously stored in the memory. Inserting an element in the array needs shifting of all its predecessors. Linked list is useful because - It allocates the memory dynamically. All the nodes of the linked list are non-contiguously stored in the memory and linked together with the help of pointers. In linked list, size is no longer a problem since we do not need to define its size at the time of declaration. List grows as per the program's demand and limited to the available memory space.",
+
+    "example":"Each node holds a single value and a reference to the next node in the list. The list has a head, which is a reference to the first node in the list, and a tail, which is a reference to the last node in the list. The nodes are not stored in a contiguous block of memory, but instead, each node holds the address of the next node in the list. Accessing elements in a singly linked list requires traversing the list from the head to the desired node, as there is no direct access to a specific node in memory.",
+
+    "image":["./images/Linkedlist1.png", "./images/Linkedlist2.png"]
+},
+
+{
+    "id":"8",
+    "topic": "OOP",
+    "sub-topic":"Stack",
+    "description":"A stack is a linear data structure where elements are stored in the LIFO (Last In First Out) principle where the last element inserted would be the first element to be deleted. A stack is an Abstract Data Type (ADT), that is popularly used in most programming languages. It is named stack because it has the similar operations as the real-world stacks, for example − a pack of cards or a pile of plates, etc. stack example Stack is considered a complex data structure because it uses other data structures for implementation, such as Arrays, Linked lists, etc. Stack Representation A stack allows all data operations at one end only. At any given time, we can only access the top element of a stack.  Stack Representation A stack can be implemented by means of Array, Structure, Pointer, and Linked List. Stack can either be a fixed size one or it may have a sense of dynamic resizing. Here, we are going to implement stack using arrays, which makes it a fixed size stack implementation. Basic Operations on Stacks Stack operations are usually performed for initialization, usage and, de-initialization of the stack ADT. The most fundamental operations in the stack ADT include: push(), pop(), peek(), isFull(), isEmpty(). These are all built-in operations to carry out data manipulation and to check the status of the stack. Stack uses pointers that always point to the topmost element within the stack, hence called as the top pointer.",
+
+    "example":"Now, assume that you have a stack of books. You can only see the top, i.e., the top-most book, namely 40, which is kept top of the stack. If you want to insert a new book first, namely 50, you must update the top and then insert a new text. And if you want to access any other book other than the topmost book that is 40, you first remove the topmost book from the stack, and then the top will point to the next topmost book. working-of-stack. After working on the representation of stacks in data structures, you will see some basic operations performed on the stacks in data structures.",
+
+    "image":["./images/Stack1.png", "./images/Stack2.png"]
+},
+
+{
+    "id":"9",
+    "topic": "OOP",
+    "sub-topic":"Queue",
+    "description":"A queue is a linear data structure where elements are stored in the FIFO (First In First Out) principle where the first element inserted would be the first element to be accessed. A queue is an Abstract Data Type (ADT) similar to stack, the thing that makes queue different from stack is that a queue is open at both its ends. The data is inserted into the queue through one end and deleted from it using the other end. Queue is very frequently used in most programming languages. car A real-world example of queue can be a single-lane one-way road, where the vehicle enters first, exits first. More real-world examples can be seen as queues at the ticket windows and bus-stops. Representation of Queues Similar to the stack ADT, a queue ADT can also be implemented using arrays, linked lists, or pointers. As a small example in this tutorial, we implement queues using a one-dimensional array. Representation of queues Basic Operations in Queue Queue operations also include initialization of a queue, usage and permanently deleting the data from the memory. The most fundamental operations in the queue ADT include: enqueue(), dequeue(), peek(), isFull(), isEmpty(). These are all built-in operations to carry out data manipulation and to check the status of the queue. Queue uses two pointers − front and rear. The front pointer accesses the data from the front end (helping in enqueueing) while the rear pointer accesses data from the rear end (helping in dequeuing).",
+
+    "example":"Two pointers are there denoting two ends, FRONT and REAR. FRONT tracks the first element of the queue. REAR tracks the last element of the queue. Initially, set the value of FRONT and REAR to -1. Afterward, follow the above-given algorithms for the basic operations.",
+
+    "image":["./images/Queue1.png","./images/Queue2.png"]
+},
+
+{
+    "id":"10",
+    "topic": "OOP",
+    "sub-topic":"trees"
+}
+
+
+]

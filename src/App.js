@@ -5,6 +5,7 @@ import Signin from './components/Signin';
 import Signup from './components/Signup';
 import Explore from './components/Explore';
 import Problems from './components/Problems';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/explore" element={<Explore/>} />
         <Route path="/problems" element={<Problems/>} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </div>
     </Router>

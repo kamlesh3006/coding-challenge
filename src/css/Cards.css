@@ -1,13 +1,14 @@
-#OOP-ele:hover .w-8 {
+#cardsEle:hover .w-8 {
     fill: green;
+    transition: all 0.3s ease-in-out;
 }
-.OOP-ele {
+.cardsEle {
     transition-property: box-shadow;
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
 }
 
-.OOP-ele:hover {
+.cardsEle:hover {
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2);
 }
