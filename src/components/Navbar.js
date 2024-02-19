@@ -1,13 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Navbar.css";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  useEffect(() => {
+    // Check if the user is already authenticated (e.g., if a token exists in local storage)
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []);
+
+  // Function to handle logout
+  const handleLogout = () => {
+    // Call the logout function passed as a prop
+    props.onLogout();
+    // Close the dropdown menu
+    setDropdownOpen(false);
   };
 
   return (
@@ -43,60 +62,72 @@ export default function Navbar(props) {
             >
               Problems
             </Link>
-            <div className="relative">
-              <button
-                onClick={toggleDropdown}
-                className="ml-4 mr-8 py-3 px-3 transition duration-500 rounded-full hover:bg-white focus:outline-none"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 448 512"
+            {isAuthenticated ? (
+              <div className="relative">
+                <button
+                  onClick={toggleDropdown}
+                  className="ml-4 mr-8 py-3 px-3 transition duration-500 rounded-full hover:bg-white focus:outline-none"
                 >
-                  <path
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
-                    fill="#4B5563"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+                      fill="#4B5563"
+                    />
+                  </svg>
+                </button>
 
-              <div
-                className={`absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10 transition-opacity duration-500 ${
-                  dropdownOpen ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {dropdownOpen && (
-                  <div>
-                    <div className="flex mx-2 mt-2 pb-2 border-b">
-                      <p className="bg-gray-100 px-3 py-3 rounded-full">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="36"
-                          height="36"
-                          viewBox="0 0 448 512"
-                        >
-                          <path
-                            d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
-                            fill="#4B5563"
-                          />
-                        </svg>
-                      </p>
-                      <p className="ml-4">Full Name</p>
+                <div
+                  className={`absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10 transition-opacity duration-500 ${
+                    dropdownOpen ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {dropdownOpen && (
+                    <div>
+                      <div className="flex mx-2 mt-2 pb-2 border-b">
+                        <p className="bg-gray-100 px-3 py-3 rounded-full">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="36"
+                            height="36"
+                            viewBox="0 0 448 512"
+                          >
+                            <path
+                              d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+                              fill="#4B5563"
+                            />
+                          </svg>
+                        </p>
+                        <p className="ml-4">Full Name</p>
+                      </div>
+                      <Link
+                        to="/profile"
+                        className="block py-2 px-4 text-left text-gray-800 transition duration-500 hover:bg-gray-100"
+                      >
+                        View Profile
+                      </Link>
+                      <button
+                        onClick={handleLogout} // Call the handleLogout function on click
+                        className="block w-full py-2 px-4 text-left text-gray-800 transition duration-500 hover:bg-gray-100"
+                      >
+                        Logout
+                      </button>
                     </div>
-                    <Link
-                      to="/profile"
-                      className="block py-2 px-4 text-left text-gray-800 transition duration-500 hover:bg-gray-100"
-                    >
-                      View Profile
-                    </Link>
-                    <button className="block w-full py-2 px-4 text-left text-gray-800 transition duration-500 hover:bg-gray-100">
-                      Logout
-                    </button>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
+            ) : (
+              <Link
+                to={props.to}
+                className="ml-4 mr-8 py-1 px-4 transition duration-500 rounded-full hover:bg-white hover:text-black"
+              >
+                {props.btn}
+              </Link>
+            )}
           </nav>
         </div>
       </header>
@@ -105,9 +136,9 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  btn: Proptypes.string,
-  to: Proptypes.string,
-  textCol: Proptypes.string,
-  bgCol: Proptypes.string,
-  onLogout: Proptypes.func.isRequired,
+  btn: PropTypes.string,
+  to: PropTypes.string,
+  textCol: PropTypes.string,
+  bgCol: PropTypes.string,
+  onLogout: PropTypes.func.isRequired,
 };
