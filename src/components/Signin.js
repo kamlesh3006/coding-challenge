@@ -36,8 +36,15 @@ export default function Signin() {
       console.log(response.data); // Log the response from the backend
       // Store the authentication token in local storage
       localStorage.setItem('token', response.data.token);
-      navigate('/explore');// Redirect the user to another page after successful login
-      // For example, you can use useHistory or useNavigate here
+  
+      // Check if the role is 'admin'
+      if (response.data.role === 'admin') {
+        // Redirect the user to the admin dashboard
+        navigate('/admin');
+      } else {
+        // Redirect the user to another page after successful login
+        navigate('/explore');
+      }
     } catch (error) {
         if (error.response) {
             // The request was made and the server responded with a status code
@@ -68,7 +75,9 @@ export default function Signin() {
       [e.target.name]: e.target.value
     });
   };
-
+ const googleLogin=()=>{
+  window.open("http://localhost/api/users/auth/google", "_self");
+ }
   return (
     <div>
       <Navbar to="/signup" btn="Sign up" onLogout={handleLogout} /> {/* Pass the logout function as a prop */}
@@ -92,7 +101,7 @@ export default function Signin() {
                   or you can sign in with
                 </p>
                 <div className='flex'>
-                  <button type="submit" className="flex items-center justify-center w-1/2 ml-1 text-gray-600 border hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><img src={googleLogo} alt='Google Logo' className='h-6 w-6 mr-2'/>Google</button>
+                  <button type="button" className="flex items-center justify-center w-1/2 ml-1 text-gray-600 border hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" onClick={googleLogin}><img src={googleLogo} alt='Google Logo' className='h-6 w-6 mr-2' />Google</button>
                   <button type="submit" className="flex items-center justify-center w-1/2 ml-1 text-gray-600 border hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><img src={githubLogo} alt='Google Logo' className='h-6 w-6 mr-2'/>Github</button>
                 </div>
               </form>
