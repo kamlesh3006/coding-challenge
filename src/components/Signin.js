@@ -40,7 +40,7 @@ export default function Signin() {
       // Check if the role is 'admin'
       if (response.data.role === 'admin') {
         // Redirect the user to the admin dashboard
-        navigate('/admin');
+        navigate('/admin-questions');
       } else {
         // Redirect the user to another page after successful login
         navigate('/explore');
@@ -76,7 +76,7 @@ export default function Signin() {
     });
   };
  const googleLogin=()=>{
-  window.open("http://localhost/api/users/auth/google", "_self");
+  window.open("http://localhost:3001/api/users/auth/google", "_self");
  }
   return (
     <div>

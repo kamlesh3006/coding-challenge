@@ -6,9 +6,11 @@ import Signup from './components/Signup';
 import Explore from './components/Explore';
 import Problems from './components/Problems';
 import Profile from './components/Profile';
-import AdminDashboard from './components/AdminDashboard';
+import AdminUsers from './components/AdminUsers';
+import AdminQuestions from './components/AdminQuestions';
 import AdminCreate from './components/AdminCreate';
 import AdminEdit from './components/AdminEdit';
+import TopicDetailPage from './components/TopicDetailPage';
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
         <Route path="/explore" element={<Explore/>} />
         <Route path="/problems" element={<Problems/>} />
         <Route path="/profile" element={<Profile/>} />
-        <Route path='/admin' element={<AdminDashboard/>} />
+        <Route path='/admin-questions' element={<AdminQuestions/>} />
+        <Route path='/admin-users' element={<AdminUsers/>} />
         <Route path='/add' element={<AdminCreate/>} />
         <Route path='/edit' element={<AdminEdit/>} />
+        <Route path='/topic/:topicId' element={<TopicDetailPage/>}/>
       </Routes>
     </div>
     </Router>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useRef, useState } from "react";
 import item from "./explore.json";
+import { Link } from "react-router-dom";
 import '../css/Cards.css';
 import Proptypes from "prop-types";
 
@@ -54,6 +55,7 @@ const Cards = (props) => {
             >
               <div className="p-4" style={{ flex: "0 0 250px" }}></div>
               {item.map((card) => ( card.topic === currentTopic &&
+              
                 <div
                   key={card.id}
                   className="p-4 relative"
@@ -69,7 +71,7 @@ const Cards = (props) => {
                       id="cardsEle"
                       className="bg-white flex items-center justify-center rounded-full z-1 border-4 transition duration-500 hover:shadow-lg absolute left-5 top-3/5 transform translate-x-40 -translate-y-1/2"
                       style={{ height: "70px", width: "70px" }}
-                    >
+                    ><Link key={card.id} to={`/topic/${card.id}`}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
@@ -80,14 +82,14 @@ const Cards = (props) => {
                         }}
                       >
                         <polygon points="189.776,141.328 189.776,370.992 388.672,256.16" />
-                      </svg>
+                      </svg></Link>
                     </div>
                     <div className="p-5 text-start">
                       <h2 className="text-xs title-font font-medium text-gray-400">
                         {card.topic}
                       </h2>
                       <h1 className="title-font text-lg font-medium text-gray-900">
-                        {card["sub-topic"]}
+                        {card["sub_topic"]}
                       </h1>
                     </div>
                   </div>
