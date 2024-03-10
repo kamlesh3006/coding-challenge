@@ -68,7 +68,7 @@ export default function AdminNavbar({ btn, to, textCol, bgCol }) {
       </header>
       <div className="bg-indigo-600 relative top-0 left-0 w-full h-40"></div>
       <div className="container mx-auto flex justify-center -mt-24">
-      <Link className="z-10">
+      <Link to={"/admin-questions"} className="z-10">
       <div className="bg-white w-72 h-40 p-6 m-4 z-10 rounded-lg shadow-md flex flex-col text-left hover:shadow-lg transition duration-300">
         <div className="flex items-center justify-between">
           <p className="font-bold">Table of</p>
@@ -80,7 +80,7 @@ export default function AdminNavbar({ btn, to, textCol, bgCol }) {
         <p className="text-sm mt-2 text-gray-400">Click to view</p>
       </div>
       </Link>
-      <Link className="z-10">
+      <Link to={"/admin-users"} className="z-10">
       <div className="bg-white w-72 h-40 p-6 m-4 z-10 rounded-lg shadow-md flex flex-col text-left hover:shadow-lg transition duration-300">
         <div className="flex items-center justify-between">
           <p className="font-bold">Table of</p>

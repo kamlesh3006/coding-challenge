@@ -107,7 +107,7 @@ export default function AdminQuestions() {
                                 <td className="px-6 py-4 text-center whitespace-nowrap">{item.problem_statement}</td>
                                 <td className="px-6 py-4 text-center whitespace-nowrap">{item.difficulty}</td>
                                 <td className="px-6 py-2 text-center whitespace-nowrap flex justify-center">
-                                    <Link to={`/edit?userId=${item.id}`} className="bg-blue-500 mr-1 hover:bg-blue-600 text-gray-100 font-bold py-2 px-4 rounded flex items-center">
+                                    <Link to={`/edit?questionId=${item.id}`} className="bg-blue-500 mr-1 hover:bg-blue-600 text-gray-100 font-bold py-2 px-4 rounded flex items-center">
                                         <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#ffffff" }} />
                                     </Link>
                                     <button onClick={() => handleDelete(item.id)} className="bg-red-500 ml-1 hover:bg-red-600 text-gray-100 font-bold py-2 px-4 rounded flex items-center">

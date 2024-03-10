@@ -36,7 +36,7 @@ export default function Navbar(props) {
           props.textCol === "gray-700" ? "gray-700" : "white"
         } bg-${props.bgCol === "gray-100" ? "gray-100" : ""}`}
       >
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <div className="container mx-auto flex flex-wrap px-5 py-2 flex-col md:flex-row items-center">
           <Link to="/">
             <p className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
               <img src="./logo.jpg" alt="Logo" className="logo-image" />
@@ -61,6 +61,12 @@ export default function Navbar(props) {
               className="ml-4 mr-8 py-1 px-4 transition duration-500 rounded-full hover:bg-white hover:text-black"
             >
               Problems
+            </Link>
+            <Link
+              to="/compiler"
+              className="ml-4 mr-8 py-1 px-4 transition duration-500 rounded-full hover:bg-white hover:text-black"
+            >
+              Compiler
             </Link>
             {isAuthenticated ? (
               <div className="relative">
