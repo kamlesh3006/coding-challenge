@@ -91,7 +91,7 @@ export default function Problems() {
               </td>
 
               <td className="px-6 py-4">
-                <Link className="font-medium text-blue-600 hover:underline">Solve</Link>
+                <Link to={`/code-question/${question.id}`} className="font-medium text-blue-600 hover:underline">Solve</Link>
               </td>
             </tr>
             ))}

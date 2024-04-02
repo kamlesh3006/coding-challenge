@@ -13,6 +13,7 @@ import AdminEdit from './components/AdminEdit';
 import TopicDetailPage from './components/TopicDetailPage';
 import AdminUserEdit from './components/AdminUserEdit';
 import Compiler from './components/Compiler';
+import Questions from './components/Questions';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/user-edit' element={<AdminUserEdit/>}/>
         <Route path='/topic/:topicId' element={<TopicDetailPage/>}/>
         <Route path='/compiler' element={<Compiler/>}/>
+        <Route path='/code-question/:id' element={<Questions/>}/>
       </Routes>
     </div>
     </Router>
