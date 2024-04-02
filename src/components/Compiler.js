@@ -16,21 +16,35 @@ function Compiler() {
 
   const compileCode = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/compile', { code });
+      const input = prompt('Enter your input:'); // Prompt the user to enter input
+      const response = await axios.post('http://localhost:3001/compile', { code, input });
       setOutput(response.data.output);
     } catch (error) {
-      console.error('Error compiling code:', error.response.data.error);
-      setOutput(error.response.data.error);
+      if (error.response && error.response.data) {
+        // Axios error with response data
+        console.error('Error compiling code:', error.response.data.error);
+        setOutput(error.response.data.error);
+      } else if (error.message) {
+        // Axios error without response data
+        console.error('Error compiling code:', error.message);
+        setOutput('An error occurred while compiling the code.');
+      } else {
+        // Non-Axios error
+        console.error('Error compiling code:', error);
+        setOutput('An unexpected error occurred.');
+      }
     }
   };
+  
 
   useEffect(() => {
     // After the component mounts, focus on the editor and set the cursor position to the center
     if (editorRef.current) {
+      editorRef.current.layout(); // This line should resolve the ResizeObserver error
       editorRef.current.focus(); // Focus on the editor
       editorRef.current.setPosition({ lineNumber: 1, column: Math.floor(code.length / 2) }); // Set cursor position to the center
     }
-  }, []); // Run this effect only once after the initial render
+  }, [code]); // Now the effect will run whenever the 'code' state changes
 
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -41,7 +55,7 @@ function Compiler() {
   };
 
   return (
-    <div style={{ backgroundColor: "#1E1E1E",minHeight:"100vh" ,maxWidth:"100%" }}>
+    <div style={{ backgroundColor: "#1E1E1E", minHeight: "100vh", maxWidth: "100%" }}>
       <Navbar textCol="gray-700" bgCol="gray-100" to="/signin" btn="Sign in" onLogout={handleLogout} />
       <div className='flex'>
         <div className='border rounded-lg m-2 p-2' style={{ width: "60%" }}>
@@ -56,7 +70,7 @@ function Compiler() {
             height="90vh"
           />
         </div>
-        <div className='mx-1 rounded-lg flex flex-col ml-0 mr-2 my-2 border text-gray-100' style={{ backgroundColor: "#1E1E1E", width:"40%" }}>
+        <div className='mx-1 rounded-lg flex flex-col ml-0 mr-2 my-2 border text-gray-100' style={{ backgroundColor: "#1E1E1E", width: "40%" }}>
           <div className='flex justify-between px-4 py-2 border-b'>
             <button onClick={compileCode} className='bg-blue-700 text-gray-100 rounded-lg px-4 py-1'>Compile</button>
             <h2 className='mx-2 text-xl font-semibold text-gray-300'>OUTPUT :</h2>
