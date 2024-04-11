@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/Navbar.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function Navbar(props) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function Navbar(props) {
         <div className="container mx-auto flex flex-wrap px-5 py-2 flex-col md:flex-row items-center">
           <Link to="/">
             <p className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-              <img src="./logo.jpg" alt="Logo" className="logo-image" />
+              <img src={logo} alt="Logo" className="logo-image" />
               <span
                 className={`ml-10 text-${
                   props.textCol === "gray-700" ? "gray-700" : "white"
@@ -49,7 +50,7 @@ export default function Navbar(props) {
               </span>
             </p>
           </Link>
-          <nav className="md:ml-auto flex font-thin flex-wrap items-center text-base justify-center">
+          <nav className="md:ml-auto flex font-extralight flex-wrap items-center text-base justify-center">
             <Link
               to="/explore"
               className="ml-4 mr-8 py-1 px-4 transition duration-500 rounded-full hover:bg-white hover:text-black"

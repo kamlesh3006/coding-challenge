@@ -81,7 +81,7 @@ export default function AdminEdit() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      const response = await axios.patch(`http://localhost:3001/api/questions/update/${questionId}`, formData, {
+      const response = await axios.put(`http://localhost:3001/api/questions/update/${questionId}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

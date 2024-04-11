@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import { useNavigate, Link } from 'react-router-dom';
+import Footer from './Footer';
 
 export default function Problems() {
   const [questions, setQuestions] = useState([]);
@@ -98,6 +99,7 @@ export default function Problems() {
           </tbody>
         </table>
       </div>
+      <Footer/>
     </div>
   );
 }

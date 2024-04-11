@@ -1,18 +1,23 @@
 .background {
-    height: 250px; /* Height of the background */
-    background: linear-gradient(to top right, rgb(137, 33, 137), rgb(99, 45, 165)); /* Gradient from purple to violet */
-    position: relative;
-    width: 100%;
-    top: auto;
-  }
+  height: 250px; /* Height of the background */
+  background: linear-gradient(to right, #FFA500, #8B0000); /* Gradient from orange to dark red */
+  position: relative;
+  width: 100%;
+  top: auto;
+}
   
   .centered {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white; /* Color of the topic name */
-    font-size: 36px; /* Adjust font size as needed */
+    color: white; /*Color of the topic name */
+    font-size: 26px; /* Adjust font size as needed */
     font-weight: bold;
   }
   
+  /* .Pagebg{
+    background: black;
+    background-image: `url(${background})`;
+    
+  } */
