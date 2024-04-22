@@ -63,8 +63,8 @@ const Cards = (props) => {
                 >
                   <div className="cardsEle h-full shadow-lg border-2 border-gray-200 border-opacity-60 rounded-2xl overflow-hidden relative">
                     <img
-                      className="lg:h-48 md:h-36 w-full object-cover object-center"
-                      src={`https://source.unsplash.com/720x400/?class`}
+                      className="lg:h-48 md:h-36 w-full  object-center"
+                      src={card.cardimg}
                       alt="image"
                     />
                     <div

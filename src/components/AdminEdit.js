@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from './AdminNavbar';
+import Footer from "./Footer";
 
 export default function AdminEdit() {
   const [formData, setFormData] = useState({
@@ -127,6 +128,7 @@ export default function AdminEdit() {
           <button type="submit" className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">Update Question</button>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 }

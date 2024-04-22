@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from './AdminNavbar';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import Footer from "./Footer";
 
 export default function AdminUsers() {
     const [data, setData] = useState([]);
@@ -16,12 +15,6 @@ export default function AdminUsers() {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        if (userRole === 'admin') {
-            fetchUsersData();
-        }
-    }, [userRole]);
-
     const fetchData = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -31,38 +24,42 @@ export default function AdminUsers() {
                 }
             });
             setUserRole(response.data.user.role);
+            if (response.data.user.role === 'admin') {
+                fetchUsersData(token);
+            } else {
+                setIsLoading(false);
+            }
         } catch (error) {
             setError(error);
-        } finally {
             setIsLoading(false);
         }
     };
 
-    const fetchUsersData = async () => {
+    const fetchUsersData = async (token) => {
         try {
-            const token = localStorage.getItem('token');
             const usersResponse = await axios.get('http://localhost:3001/api/users/viewProfileall', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
             setData(usersResponse.data.users);
+            setIsLoading(false);
         } catch (error) {
             setError(error);
+            setIsLoading(false);
         }
     };
-
 
     const handleDelete = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:3001/api/users/delete/${id}`, {
+            await axios.delete(`http://localhost:3001/api/users/deleteUser/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
             // After successful deletion, fetch updated users data
-            fetchUsersData();
+            fetchUsersData(token);
         } catch (error) {
             console.error('Error deleting user:', error);
         }
@@ -76,13 +73,14 @@ export default function AdminUsers() {
         return <div>Error: {error.message}</div>;
     }
 
-    if (!(userRole === 'admin')) {
-        return <div>You do not have permission to access this page.</div>;
+    if (!(userRole === 'admin') || data.length === 0) {
+        return <div>You do not have permission to access this page or there is no data available.</div>;
     }
+
     let count = 0;
     return (
         <div className="bg-gray-100 text-gray-600 min-h-screen">
-            <AdminNavbar btn="Add User" to="/add" />
+            <AdminNavbar btn="Add Question" to="/add" />
             <div className="container shadow-lg mx-auto mt-4 max-w-screen-xl">
                 <div className="overflow-x-auto">
                     <div className="mx-auto">
@@ -112,9 +110,6 @@ export default function AdminUsers() {
                                             <td className="px-6 py-2 text-center border-y whitespace-nowrap">{item.year}</td>
                                             <td className="px-6 py-2 text-center border-y whitespace-nowrap">{item.branch}</td>
                                             <td className="px-6 py-2 text-center border-y whitespace-nowrap flex justify-center">
-                                                <Link to={`/edit-user?userId=${item.id}`} className="bg-blue-500 mr-1 hover:bg-blue-600 text-gray-100 font-bold py-2 px-4 rounded flex items-center">
-                                                    <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#ffffff" }} />
-                                                </Link>
                                                 <button onClick={() => handleDelete(item.id)} className="bg-red-500 ml-1 hover:bg-red-600 text-gray-100 font-bold py-2 px-4 rounded flex items-center">
                                                     <FontAwesomeIcon icon={faTrashAlt} style={{ color: "#ffffff" }} />
                                                 </button>
@@ -128,6 +123,7 @@ export default function AdminUsers() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

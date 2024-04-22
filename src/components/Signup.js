@@ -104,24 +104,11 @@ export default function Signup() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required=""/>
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label htmlFor="terms" className="font-light text-gray-500">I accept the <a className="font-medium text-blue-600 hover:underline" href="#">Terms and Conditions</a></label>
-                  </div>
                 </div>
                 <button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
                 <p className="text-sm font-light text-gray-500">
                   Already have an account? <Link to="/signin" className="font-medium text-blue-600 hover:underline">Sign in</Link>
                 </p>
-                <p className="text-sm font-light text-gray-500">
-                  or you can sign in with
-                </p>
-                <div className='flex'>
-                  <button type="submit" className="flex items-center justify-center w-1/2 ml-1 text-gray-600 border hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><img src={googleLogo} alt='Google Logo' className='h-6 w-6 mr-2'/>Google</button>
-                  <button type="submit" className="flex items-center justify-center w-1/2 ml-1 text-gray-600 border hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><img src={githubLogo} alt='Google Logo' className='h-6 w-6 mr-2'/>Github</button>
-                </div>
               </form>
             </div>
           </div>

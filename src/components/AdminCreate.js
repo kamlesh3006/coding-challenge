@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from './AdminNavbar';
+import Footer from "./Footer";
 
 export default function AdminCreate() {
   const [formData, setFormData] = useState({
@@ -104,6 +105,7 @@ try {
           <button type="submit" className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">Add Question</button>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 }

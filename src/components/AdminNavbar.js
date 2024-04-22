@@ -8,11 +8,14 @@ import { faAddressCard  } from '@fortawesome/free-solid-svg-icons';
 import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import axios from "axios";
+import logo from "../assets/logo.png";
 
 export default function AdminNavbar({ btn, to, textCol, bgCol }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [userRole, setUserRole] = useState('');
+  const [users, setUsers] = useState(0);
+  const [questions, setQuestions] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,6 +36,34 @@ export default function AdminNavbar({ btn, to, textCol, bgCol }) {
     } finally {
       setIsLoading(false);
     }
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:3001/api/users/viewProfileall', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      console.log(response.data.users.length)
+      setUsers(response.data.users.length);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:3001/api/questions/getallquestions', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      console.log(response.data.length)
+      setQuestions(response.data.length);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleLogout = () => {
@@ -46,7 +77,7 @@ export default function AdminNavbar({ btn, to, textCol, bgCol }) {
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <Link to="/">
             <p className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-              <img src="./logo.jpg" alt="Logo" className="logo-image" />
+              <img src={logo} alt="Logo" className="logo-image" />
               <span className="ml-10 text-xl text-gray-700"> Coding</span>
             </p>
           </Link>
@@ -99,7 +130,7 @@ export default function AdminNavbar({ btn, to, textCol, bgCol }) {
             <FontAwesomeIcon icon={faCircleQuestion} size="lg" style={{ color: "#4f46e5" }} />
           </div>
         </div>
-        <h1 className="text-4xl font-bold mt-4">10 <span className="text-3xl">Questions</span></h1>
+        <h1 className="text-4xl font-bold mt-4">{questions} <span className="text-3xl">Questions</span></h1>
       </div>
       <div className="bg-white w-72 h-40 p-6 m-4 z-10 rounded-lg shadow-md flex flex-col text-left">
         <div className="flex items-center justify-between">
@@ -108,7 +139,7 @@ export default function AdminNavbar({ btn, to, textCol, bgCol }) {
             <FontAwesomeIcon icon={faUser} size="lg" style={{ color: "#4f46e5" }} />
           </div>
         </div>
-        <h1 className="text-4xl font-bold mt-4">18 <span className="text-3xl">Students</span></h1>
+        <h1 className="text-4xl font-bold mt-4">{users} <span className="text-3xl">Students</span></h1>
       </div>
     </div>
     </div>

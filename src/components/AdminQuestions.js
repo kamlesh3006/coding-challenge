@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import Footer from "./Footer";
 
 export default function AdminQuestions() {
   const [data, setData] = useState([]);
@@ -123,6 +124,7 @@ export default function AdminQuestions() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

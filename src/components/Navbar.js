@@ -46,7 +46,7 @@ export default function Navbar(props) {
                   props.textCol === "gray-700" ? "gray-700" : "white"
                 } text-xl`}
               >
-                Coding
+                CodeArena
               </span>
             </p>
           </Link>
